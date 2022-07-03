@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入模版引擎 -->
+    <!-- 导入成功之后在window全局就多了一个函数，叫做template('模版的ID',需要渲染数据的对象) -->
+    <script src="./template-web.js"></script>
+    <script src="./jQuery/jquery.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <!-- 定义模版：模版的HTML结构必须定义到script中 -->
+    <!-- 如果script标签没有加type属性的话他会有一个默认的type属性=text/javascript意思是把里面的代码都当作JavaScript去执行-->
+    <script type="text/html" id="tpl-user">
+        <h1>{{name}}----------{{age}}</h1>
+    </script>
+
+    <script>
+        // 定义需要渲染的数据
+        var data = { name: 'xin', age: 22, }
+
+        // 调用template函数
+        var htmlStr = template('tpl-user', data)
+        // console.log(htmlStr)
+        // 渲染html结构
+        $('#container').html(htmlStr)
+    </script>
+</body>
+
+</html>
